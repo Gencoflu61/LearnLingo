@@ -1,11 +1,23 @@
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './contexts/AutContext';
+import Layout from './components/Layout/Layout';
+import HomePage from './pages/HomePage';
+import TeachersPage from './pages/TeacherPage';
+
 function App() {
   return (
-    <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold text-blue-600">
-        Learn Longo
-      </h1>
-    </div>
-  )
+    <BrowserRouter>
+      <AuthProvider>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/teachers" element={<TeachersPage />} />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </Layout>
+      </AuthProvider>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
