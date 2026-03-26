@@ -1,18 +1,46 @@
-# React + Vite
+# LearnLingo - Online Language Learning Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An interactive web application for connecting language learners with qualified tutors.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- User authentication (Register/Login)
+- Browse teachers with filtering options
+- Favorite teachers system
+- Detailed teacher profiles with reviews
+- Responsive design
 
-## React Compiler
+## 🛠 Technologies
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+- **Frontend:** React , React Router
+- **Styling:** CSS Modules, Tailwind CSS
+- **Backend:** Firebase (Authentication & Realtime Database)
+- **Forms:** React Hook Form + Yup validation
+- **Build Tool:** Vite
 
-Note: This will impact Vite dev & build performances.
+## 📋 Filtering Options
 
-## Expanding the ESLint configuration
+- Filter by language
+- Filter by proficiency level
+- Filter by price range
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 💾 Favorite System
+
+- Add/remove teachers to favorites
+- Persists after page refresh (localStorage)
+- Requires user authentication
+
+## 🔧 Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/Gencoflu61/LearnLingo.git
+
+# Install dependencies
+npm install
+
+# Create .env file with Firebase config
+# Add your Firebase credentials
+
+# Run development server
+npm run dev

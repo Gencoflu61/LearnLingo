@@ -17,7 +17,7 @@ const HomePage = () => {
         <p className={styles.pText}>Embark on an Exciting Language Journey with Expert Language Tutors: Elevate your language proficiency to new heights by connecting with highly qualified and experienced tutors.</p>
         <button className={styles.heroBtn} onClick={handleGetStarted}> Get started</button>
         </div>
-        <div className={styles.heroPic}><span>Burada resim olucak </span></div>
+        <div className={styles.heroPic}><img src="src/assets/block.jpg" alt="" /></div>
       </div>
       <div className={styles.info}>
         {/*Geçici yapılıyor burdaki değerler güncel değişicek mi yoksa sabit mi kalıncak bilinmiyor */}

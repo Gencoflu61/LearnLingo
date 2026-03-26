@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider } from './contexts/AutContext';
+import { AuthProvider } from './contexts/AuthContext';
 import Layout from './components/Layout/Layout';
 import HomePage from './pages/HomePage';
-import TeachersPage from './pages/TeacherPage';
+import TeachersPage from './pages/TeachersPage';
 
 function App() {
   return (

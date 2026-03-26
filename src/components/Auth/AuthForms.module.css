@@ -1,0 +1,79 @@
+.formLog {
+  width: 438px;
+  justify-content: center;
+  align-items: center;
+}
+
+.formReg {
+  width: 438px;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.title {
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 48px;
+}
+
+.logp {
+  margin-bottom: 40px;
+  opacity: 0.8;
+  color: #121417;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.inputGroup {
+  display: block;
+  padding-bottom: 18px;
+}
+
+.input {
+  width: 438px;
+  height: 54px;
+  border-radius: 12px;
+  border: 1px solid #121417;
+  padding: 0 16px;
+  font-size: 16px;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #F4C550;
+}
+
+.inputError {
+  border-color: #ef4444;
+}
+
+.errorMessage {
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.submitBtn {
+  width: 438px;
+  height: 60px;
+  border: 1px solid #F4C550;
+  border-radius: 12px;
+  background-color: #F4C550;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submitBtn:hover {
+  background-color: transparent;
+  color: #F4C550;
+}
+
+.submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import styles from "./Modal.module.css"
 
-const Modal = ({ isOpen, onClose, children }) => {
+const Modal = ({ isOpen, onClose, children, modalClassName }) => {
     //ESC ile kapatma
     useEffect(() => {
         const handleEsc = (e) => {
@@ -28,7 +28,7 @@ const Modal = ({ isOpen, onClose, children }) => {
     };
      return (
     <div className={styles.overlay} onClick={handleOverlayClick}>
-      <div className={styles.modal}>
+      <div className={`${styles.modal} ${modalClassName || ''}`}>
         <button 
           className={styles.closeBtn} 
           onClick={onClose}

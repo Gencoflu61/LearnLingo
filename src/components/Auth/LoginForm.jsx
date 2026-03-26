@@ -1,84 +1,95 @@
-import { useFormik } from 'formik';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
 import { loginSchema } from '../../schemas/authSchemas';
-import { useAuth } from '../../contexts/AutContext';
+import { useAuth } from '../../contexts/AuthContext';
+import PasswordInput from '../UI/PasswordInput';
 import styles from './AuthForms.module.css';
 
 const LoginForm = ({ onSuccess }) => {
-    const { login } = useAuth();
+  const { login } = useAuth();
 
-    const formik = useFormik({
-        initialValues: {
-            email: '',
-            password: ''
-        },
-        validationSchema: loginSchema,
-        onSubmit: async (values, { setSubmitting, setErrors }) => {
-        try {
-        await login(values.email, values.password);
-        onSuccess(); 
-        } catch (error) {
-        let errorMessage = 'Login failed';
-        if (error.code === 'auth/user-not-found') {
-          errorMessage = 'User not found';
-        } else if (error.code === 'auth/wrong-password') {
-          errorMessage = 'Wrong password';
-        } else if (error.code === 'auth/invalid-email') {
-          errorMessage = 'Invalid email';
-        } else {
-          errorMessage = error.message;
-        }
-        setErrors({ general: errorMessage});
-    } finally{
-        setSubmitting(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    setError
+  } = useForm({
+    resolver: yupResolver(loginSchema)
+  });
+
+  const onSubmit = async (data) => {
+    try {
+      await login(data.email, data.password);
+      onSuccess();
+    } catch (error) {
+      let errorMessage = '';
+      
+      switch (error.code) {
+        case 'auth/invalid-credential':
+          errorMessage = 'Invalid email or password';
+          break;
+        case 'auth/too-many-requests':
+          errorMessage = 'Too many attempts. Try again later';
+          break;
+        case 'auth/user-disabled':
+          errorMessage = 'Account disabled';
+          break;
+        case 'auth/network-request-failed':
+          errorMessage = 'Network error. Check connection';
+          break;
+        default:
+          errorMessage = 'Login failed. Try again';
+          break;
+      }
+      
+      setError('general', { message: errorMessage });
     }
-  }
-});
+  };
+
   return (
-    <form onSubmit={formik.handleSubmit} className={styles.form}>
-        <h2 className={styles.title}> Log In</h2>
-        <p className={styles.logp}>Welcome back! Please enter your credentials to access your account and continue your search for an teacher.</p>
-        {/* Genel hata mesajı */}
-        {formik.errors.general && (
-            <div className={styles.errorMessage}>
-                {formik.errors.general}
-            </div>
-        )}
-        <div className={styles.inputGroup}>
-            <input 
-             type="email"
-             id="email"
-             name="email"
-             placeholder="E-posta adresi"
-             onChange={formik.handleChange}
-             onBlur={formik.handleBlur}
-             value={formik.values.email}
-             className={`${styles.input} ${formik.touched.email && formik.errors.email ? styles.inputError : ''}`}
-              />
-              {formik.touched.email && formik.errors.email && (
-                <p className={styles.errorMessage}>{formik.errors.email}</p>
-              )}
+    <form onSubmit={handleSubmit(onSubmit)} className={styles.formLog}>
+      <h2 className={styles.title}>Log In</h2>
+      <p className={styles.logp}>
+        Welcome back! Please enter your credentials to access your account 
+        and continue your search for an teacher.
+      </p>
+      
+      {errors.general && (
+        <div className={styles.errorMessage} style={{ textAlign: 'center', marginBottom: '1rem' }}>
+          {errors.general.message}
         </div>
-        <div className={styles.inputGroup}>
-        <input
-          id="password"
-          name="password"
-          type="password"
-          placeholder="Şifre"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.password}
-          className={`${styles.input} ${formik.touched.password && formik.errors.password ? styles.inputError : ''}`}
+      )}
+      
+      <div className={styles.inputGroup}>
+        <input 
+          type="email"
+          placeholder="Email"
+          {...register('email')}
+          className={`${styles.input} ${errors.email ? styles.inputError : ''}`}
         />
-        {formik.touched.password && formik.errors.password && (
-          <p className={styles.errorMessage}>{formik.errors.password}</p>
+        {errors.email && (
+          <p className={styles.errorMessage}>{errors.email.message}</p>
         )}
       </div>
+      
+      <div className={styles.inputGroup}>
+        <PasswordInput
+          register={register}
+          name="password"
+          placeholder="Password"
+          error={errors.password}
+        />
+        {errors.password && (
+          <p className={styles.errorMessage}>{errors.password.message}</p>
+        )}
+      </div>
+      
       <button 
         type="submit" 
         className={styles.submitBtn}
-        disabled={formik.isSubmitting}
+        disabled={isSubmitting}
       >
-        {formik.isSubmitting ? 'Logging in...' : 'Log In'}
+        {isSubmitting ? 'Logging in...' : 'Log In'}
       </button>
     </form>
   );

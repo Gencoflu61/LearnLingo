@@ -4,26 +4,22 @@ import * as yup from 'yup';
 export const loginSchema = yup.object({
   email: yup
     .string()
-    .email('Geçerli bir email adresi giriniz')
-    .required('Email adresi zorunludur'),
+    .email('Please enter a valid email address.')
+    .required('Email address is required'),
   password: yup
     .string()
-    .min(6, 'Şifre en az 6 karakter olmalıdır')
-    .required('Şifre zorunludur')
+    .min(6, 'Password must be at least 6 characters long')
+    .required('Password is required')
 });
 
 // Kayıt ol formu için doğrulama kuralları
 export const registerSchema = yup.object({
   email: yup
     .string()
-    .email('Geçerli bir email adresi giriniz')
-    .required('Email adresi zorunludur'),
+    .email('Please enter a valid email address.')
+    .required('Email address is required'),
   password: yup
     .string()
-    .min(6, 'Şifre en az 6 karakter olmalıdır')
-    .required('Şifre zorunludur'),
-  confirmPassword: yup
-    .string()
-    .oneOf([yup.ref('password'), null], 'Şifreler eşleşmiyor')
-    .required('Şifre tekrarı zorunludur')
+    .min(6, 'Password must be at least 6 characters long')
+    .required('Password is required'),
 });

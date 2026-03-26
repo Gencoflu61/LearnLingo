@@ -1,0 +1,91 @@
+.container{
+    margin: 20px 64px 32px;
+}
+.hero{
+ display: flex;
+ gap: 24px;
+}
+.heroText {
+    display: block;
+    width: 720px;
+    height: 530px;
+    background-color: #F8F8F8;
+}
+.title{
+    width: 548px;
+    height: 112px;
+    margin: 98px 108px 32px 64px;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 56px;
+    letter-spacing: -2%;
+    font-style: medium;
+}
+.span{
+    background-color: #FBE9BA;
+}
+.pText{
+    width: 471px;
+    height: 66px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
+    font-style: regular;
+    margin-left: 64px;
+    margin-right: 187px;
+    margin-bottom: 64px;
+}
+.heroBtn {
+    width: 267px;
+    height: 60px;
+    border: 1px solid #F4C550;
+    background-color: #F4C550;
+    padding: 16px 88px;
+    margin-left: 64px;
+    margin-right: 389px;
+    margin-bottom: 98px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.heroBtn:hover {
+    color: #f4c550;
+    background-color: transparent;
+    border-color: #F4C550;
+}
+.heroPic{
+    width: 568px;
+    height: 530px;
+    border-radius: 30px;
+}
+.info{
+    width: 1312px;
+    height: 116px;
+    border-radius: 30px;
+    border: none;
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23F4C550' stroke-width='1.5' stroke-dasharray='15%2c 15' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+}
+.info_first{
+    justify-content: space-around;
+    align-items: center;
+    width: 1067px;
+    height: 36px;
+    display: flex;
+    margin: 40px 123px;
+    padding: 40px 0;
+    
+}
+.info_h1{
+    height: 32px;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 32px;
+}
+.info_p{
+    width: 96px;
+    height: 36px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    opacity: 0.7;
+    color: #121417;
+}
