@@ -117,13 +117,11 @@ const TeacherCard = ({ teacher, isFavorite, onToggleFavorite, activeFilters }) =
           {isExpanded && (
             <div className={styles.expandedContent}>
               <div className={styles.section}>
-                <span className={styles.sectionTitle}>Experience : </span>
                 <p className={styles.sectionText}>{teacher.experience}</p>
               </div>
               
               {teacher.reviews && teacher.reviews.length > 0 && (
                 <div className={styles.reviewsSection}>
-                  <span className={styles.sectionTitle}>Reviews : </span>
                   {teacher.reviews.map((review, idx) => (
                     <div key={idx} className={styles.reviewItem}>
                       <div className={styles.reviewHeader}>
@@ -132,11 +130,14 @@ const TeacherCard = ({ teacher, isFavorite, onToggleFavorite, activeFilters }) =
                           alt={review.reviewer_name}
                           className={styles.reviewerAvatar}
                         />
-                        <span className={styles.reviewerName}>{review.reviewer_name}</span>
+                        <div className={styles.reviewOp}>
+                          <span className={styles.reviewerName}>{review.reviewer_name}</span>
                         <div className={styles.ratingContainer}>
                           <img src={starIcon} alt="star" className={styles.iconSmall} />
                           <span className={styles.ratingValue}>{review.reviewer_rating}</span>
                         </div>
+                        </div>
+                        
                       </div>
                       <p className={styles.reviewComment}>{review.comment}</p>
                     </div>

@@ -161,7 +161,6 @@
 }
 
 .reviewItem {
-  background-color: #f9fafb;
   padding: 12px;
   border-radius: 12px;
   margin-bottom: 8px;
@@ -180,7 +179,9 @@
   border-radius: 50%;
   object-fit: cover;
 }
-
+.reviewOp{
+  display: block;
+}
 .reviewerName {
   font-weight: 500;
   font-size: 14px;
