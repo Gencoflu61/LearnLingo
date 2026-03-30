@@ -40,7 +40,7 @@ git clone https://github.com/Gencoflu61/LearnLingo.git
 npm install
 
 # Create .env file with Firebase config
-# Add your Firebase credentials
+# https://console.firebase.google.com/project/online-language-school-345e1/overview
 
 # Run development server
 npm run dev
