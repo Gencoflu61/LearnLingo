@@ -1,9 +1,17 @@
+.header {
+  background-color: white;
+  border-bottom: 1px solid #e5e7eb;
+  width: 100%;
+}
 
 .container {
+  max-width: 1184px;
+  margin: 0 auto;
+  padding: 0 16px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  height: 48px;
-  margin: 20px 128px;
+  height: 72px;
 }
 
 .logo {
@@ -12,7 +20,6 @@
   line-height: 24px;
   color: #121417;
   text-decoration: none;
-  margin-right: 390px;
 }
 
 .nav {
@@ -21,7 +28,6 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
-  margin-right: 264px;
 }
 
 .navLink {
@@ -41,7 +47,6 @@
 }
 
 .loginBtn {
-  height: 20px;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -50,6 +55,7 @@
   cursor: pointer;
   font-size: 16px;
   color: #121417;
+  padding: 8px;
   transition: color 0.2s;
 }
 
@@ -68,8 +74,7 @@
   background-color: #121417;
   cursor: pointer;
   font-size: 16px;
-  color: #ffff;
-  padding: 14px 39px;
+  color: #ffffff;
   border-radius: 12px;
   transition: all 0.2s;
 }
@@ -82,16 +87,17 @@
 
 .logoutBtn {
   background-color: #f4c550;
-  color: white;
+  color: #121417;
   border: none;
-  padding: 8px 12px;
+  padding: 8px 16px;
   border-radius: 12px;
   cursor: pointer;
   transition: background-color 0.2s;
+  font-weight: 500;
 }
 
 .logoutBtn:hover {
-  background-color: #dc2626;
+  background-color: #e5b83c;
 }
 
 .userName {
@@ -113,7 +119,9 @@
 .loginBtn:hover .icon {
   color: #f4c550;
 }
-
-.regisBtn:hover .icon {
-  color: #f4c550;
+.iconSmall{
+  width: 28px;
+  height: 28px;
+  margin-right: 2px;
+  padding-top: 10px;
 }

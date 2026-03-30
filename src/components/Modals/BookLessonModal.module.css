@@ -1,0 +1,166 @@
+.form {
+  width: 600px;
+  height: 972px;
+  border-radius: 30px;
+  padding: 64px 64px 64px 64px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #121417;
+  margin-bottom: 12px;
+}
+
+.description {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+/* Teacher section - resimli */
+.teacherSection {
+  display: flex;
+  margin-bottom: 24px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 20px;
+}
+
+.sectionLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: #8A8A89;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+ 
+}
+
+.teacherInfo {
+  margin-left: 10px;
+  display: block;
+  align-items: center;
+}
+
+.teacherAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.teacherName {
+  font-size: 18px;
+  font-weight: 600;
+  color: #121417;
+  margin: 0;
+}
+
+/* Reason section */
+.reasonSection {
+  margin-bottom: 24px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 20px;
+}
+
+.reasonOptions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.radio {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  accent-color: #f4c550;
+}
+
+.radioText {
+  font-size: 14px;
+  color: #121417;
+}
+
+/* Form alanları */
+.formRow {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 20px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #8A8A89;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  font-size: 14px;
+  background-color: white;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  border-color: #f4c550;
+}
+
+.inputError {
+  border-color: #ef4444;
+}
+
+.errorMessage {
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/* Submit butonu */
+.submitBtn {
+  width: 100%;
+  height: 52px;
+  background-color: #f4c550;
+  color: #121417;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submitBtn:hover {
+  background-color: #e5b83c;
+  transform: translateY(-2px);
+}
+
+.submitBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}

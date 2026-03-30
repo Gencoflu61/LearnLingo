@@ -1,0 +1,61 @@
+.container {
+  max-width: 1184px;
+  margin: 0 auto;
+  padding: 32px 16px;
+}
+
+.resultCount {
+  text-align: center;
+  color: #8A8A89;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.noResults {
+  text-align: center;
+  padding: 48px;
+  background-color: #f9fafb;
+  border-radius: 16px;
+  margin-top: 32px;
+}
+
+.noResults p {
+  color: #6b7280;
+  margin-bottom: 16px;
+}
+
+.teachersGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.loadMoreWrapper {
+  text-align: center;
+  margin-top: 32px;
+}
+
+.loadMoreBtn {
+  background-color: #f4c550;
+  color: #121417;
+  padding: 12px 32px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.loadMoreBtn:hover {
+  background-color: #e5b83c;
+  transform: translateY(-2px);
+}
+
+.loading {
+  text-align: center;
+  padding: 48px;
+  font-size: 18px;
+  color: #6b7280;
+}

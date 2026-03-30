@@ -4,6 +4,7 @@ import { useAuth } from '../../contexts/AuthContext';
 import Modal from '../Modals/Modal';
 import LoginForm from '../Auth/LoginForm';
 import RegisterForm from '../Auth/RegisterForm';
+import ukraineIcon from '../../assets/svg/ukraine.svg';
 import styles from './Header.module.css';
 
 const Header = () => {
@@ -49,6 +50,7 @@ const Header = () => {
       <header className={styles.header}>
         <div className={styles.container}>
           <Link to="/" className={styles.logo}>
+           <img src={ukraineIcon} alt="ukraıne" className={styles.iconSmall} />
             LearnLingo
           </Link>
 

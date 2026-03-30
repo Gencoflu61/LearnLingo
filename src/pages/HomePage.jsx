@@ -20,7 +20,6 @@ const HomePage = () => {
         <div className={styles.heroPic}><img src="src/assets/block.jpg" alt="" /></div>
       </div>
       <div className={styles.info}>
-        {/*Geçici yapılıyor burdaki değerler güncel değişicek mi yoksa sabit mi kalıncak bilinmiyor */}
         <div className={styles.info_first}>
             <h1 className={styles.info_h1}>32,000 +</h1>
             <p className={styles.info_p}>Experienced tutors</p>

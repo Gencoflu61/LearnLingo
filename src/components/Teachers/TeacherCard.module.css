@@ -1,0 +1,267 @@
+.card {
+  background-color: white;
+  border-radius: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 24px;
+  display: flex;
+  gap: 32px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.leftColumn {
+  width: 120px;
+  flex-shrink: 0;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.rightColumn {
+  flex: 1;
+}
+
+.topRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 8px;
+}
+
+.nameAndTitle {
+  display: block;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.languagesTitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #8A8A89;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #121417;
+  margin: 0;
+}
+
+.heartContainer {
+  display: flex;
+  align-items: center;
+}
+
+.speaks {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.speaksText {
+  font-weight: 500;
+  font-size: 16px;
+  text-decoration: underline;
+  color: #121417;
+}
+
+.infoRow {
+  display: flex;
+  gap: 32px;
+  margin-bottom: 12px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #121417;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.priceValue {
+  color: #10b981;
+}
+
+.ratingContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ratingLabel {
+  font-size: 14px;
+  font-weight: 500;
+  color: #121417;
+}
+
+.ratingValue {
+  font-size: 14px;
+  font-weight: 600;
+  color: #121417;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.sectionTitle {
+  font-size: 12px;
+  font-weight: 500;
+  color: #8A8A89;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+}
+
+.sectionText {
+  font-size: 14px;
+  color: #121417;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.readMoreBtn {
+  background: none;
+  border: none;
+  color: #3b82f6;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 0;
+  transition: color 0.2s;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.readMoreBtn:hover {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.expandedContent {
+  margin-top: 8px;
+}
+
+.reviewsSection {
+  margin-bottom: 16px;
+}
+
+.reviewItem {
+  background-color: #f9fafb;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.reviewHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.reviewerAvatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.reviewerName {
+  font-weight: 500;
+  font-size: 14px;
+  color: #1f2937;
+  flex: 1;
+}
+
+.reviewStars {
+  display: flex;
+  gap: 2px;
+  font-size: 12px;
+}
+
+.reviewComment {
+  font-size: 13px;
+  color: #6b7280;
+  line-height: 1.4;
+  margin: 0;
+  padding-left: 40px;
+}
+
+.levelTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.levelTag {
+  background-color: #f3f4f6;
+  color: #6b7280;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.levelTagActive {
+  background-color: #F4C550;
+  color: #121417;
+}
+
+.bookLessonBtn {
+  background-color: #f4c550;
+  color: #121417;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.bookLessonBtn:hover {
+  background-color: #e5b83c;
+  transform: translateY(-2px);
+}
+
+.modalBooking {
+  width: 600px;
+  max-width: 90vw;
+}
+/* Mevcut CSS'in sonuna ekle */
+
+.iconSmall {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ratingContainer {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

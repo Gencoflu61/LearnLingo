@@ -4,6 +4,7 @@ import { ref, get } from 'firebase/database';
 import { useFavorites } from '../hooks/useFavorites';
 import TeacherCard from '../components/Teachers/TeacherCard';
 import TeacherFilters from '../components/Teachers/TeacherFilters';
+import styles from './TeachersPage.module.css';
 
 const TeachersPage = () => {
   const [allTeachers, setAllTeachers] = useState([]);
@@ -18,7 +19,6 @@ const TeachersPage = () => {
 
   const { isFavorite, toggleFavorite } = useFavorites();
 
-  // Öğretmenleri çek
   useEffect(() => {
     const fetchTeachers = async () => {
       try {
@@ -27,14 +27,28 @@ const TeachersPage = () => {
         
         if (snapshot.exists()) {
           const data = snapshot.val();
+          
+          let teachersWithId = [];
+          
           if (Array.isArray(data)) {
-            const teachersWithId = data.map((teacher, index) => ({
+            teachersWithId = data.map((teacher, index) => ({
               id: index.toString(),
               ...teacher
             }));
-            setAllTeachers(teachersWithId);
-            setFilteredTeachers(teachersWithId);
+          } else if (data.teachers && Array.isArray(data.teachers)) {
+            teachersWithId = data.teachers.map((teacher, index) => ({
+              id: index.toString(),
+              ...teacher
+            }));
+          } else if (typeof data === 'object' && data !== null) {
+            teachersWithId = Object.keys(data).map(key => ({
+              id: key,
+              ...data[key]
+            }));
           }
+          
+          setAllTeachers(teachersWithId);
+          setFilteredTeachers(teachersWithId);
         }
       } catch (err) {
         console.error('Hata:', err);
@@ -46,26 +60,24 @@ const TeachersPage = () => {
     fetchTeachers();
   }, []);
 
-  // Filtreleme fonksiyonu
   useEffect(() => {
+    if (allTeachers.length === 0) return;
+    
     let filtered = [...allTeachers];
     
-    // Dile göre filtrele
-    if (filters.language) {
+    if (filters.language && filters.language !== '') {
       filtered = filtered.filter(teacher => 
-        teacher.languages?.includes(filters.language)
+        teacher.languages && teacher.languages.includes(filters.language)
       );
     }
     
-    // Seviyeye göre filtrele
-    if (filters.level) {
+    if (filters.level && filters.level !== '') {
       filtered = filtered.filter(teacher => 
-        teacher.levels?.includes(filters.level)
+        teacher.levels && teacher.levels.includes(filters.level)
       );
     }
     
-    // Fiyata göre filtrele
-    if (filters.price !== 'all') {
+    if (filters.price && filters.price !== 'all') {
       if (filters.price === '0-25') {
         filtered = filtered.filter(t => t.price_per_hour < 25);
       } else if (filters.price === '25-30') {
@@ -78,19 +90,11 @@ const TeachersPage = () => {
     }
     
     setFilteredTeachers(filtered);
-    setVisibleCount(4); // Filtre değişince ilk 4 kartı göster
+    setVisibleCount(4);
   }, [filters, allTeachers]);
 
   const handleFilterChange = (key, value) => {
     setFilters(prev => ({ ...prev, [key]: value }));
-  };
-
-  const handleResetFilters = () => {
-    setFilters({
-      language: '',
-      level: '',
-      price: 'all'
-    });
   };
 
   const visibleTeachers = filteredTeachers.slice(0, visibleCount);
@@ -101,39 +105,43 @@ const TeachersPage = () => {
   };
 
   if (loading) {
-    return <div className="container text-center">Loading teachers...</div>;
+    return <div className={styles.loading}>Loading teachers...</div>;
   }
 
   return (
-    <div className="container">
+    <div className={styles.container}>
       <TeacherFilters 
         filters={filters}
         onFilterChange={handleFilterChange}
-        onReset={handleResetFilters}
       />
       
+      <p className={styles.resultCount}>
+        {filteredTeachers.length} teachers found
+      </p>
+      
       {filteredTeachers.length === 0 ? (
-        <div className="text-center py-8">
-          <p className="text-gray-500">No teachers found matching your criteria.</p>
+        <div className={styles.noResults}>
+          <p>No teachers found matching your criteria.</p>
         </div>
       ) : (
         <>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className={styles.teachersGrid}>
             {visibleTeachers.map(teacher => (
               <TeacherCard 
                 key={teacher.id} 
                 teacher={teacher}
                 isFavorite={isFavorite(teacher.id)}
                 onToggleFavorite={() => toggleFavorite(teacher.id)}
+                activeFilters={filters}
               />
             ))}
           </div>
           
           {hasMore && (
-            <div className="text-center mt-8">
+            <div className={styles.loadMoreWrapper}>
               <button
                 onClick={loadMore}
-                className="bg-blue-500 text-white px-6 py-2 rounded-lg hover:bg-blue-600 transition"
+                className={styles.loadMoreBtn}
               >
                 Load more ({visibleTeachers.length} / {filteredTeachers.length})
               </button>

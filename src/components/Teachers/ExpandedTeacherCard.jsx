@@ -1,7 +1,6 @@
 import styles from './ExpandedTeacherCard.module.css';
 
 const ExpandedTeacherCard = ({ teacher }) => {
-  // Yıldızları oluştur
   const renderStars = (rating) => {
     const stars = [];
     for (let i = 0; i < 5; i++) {
