@@ -6,9 +6,18 @@ import bookOpenIcon from '../../assets/svg/book-open-01.svg';
 import starIcon from '../../assets/svg/Star 2.svg';
 import styles from './TeacherCard.module.css';
 
-const TeacherCard = ({ teacher, isFavorite, onToggleFavorite, activeFilters }) => {
+const TeacherCard = ({ teacher, isFavorite, onToggleFavorite, activeFilters, hideHeart }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+
+    {!hideHeart && (
+    <div className={styles.heartContainer}>
+      <HeartButton 
+        isActive={isFavorite} 
+        onClick={() => onToggleFavorite(teacher.id)}
+      />
+    </div>
+  )}
 
   const renderStars = (rating) => {
     const stars = [];
